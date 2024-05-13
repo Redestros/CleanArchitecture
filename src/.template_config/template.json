@@ -8,7 +8,7 @@
   "identity": "Minimized.CleanArchitecture.Template",
   "name": "Minimized ASP.NET Clean Architecture Solution",
   "shortName": "min-clean-arch",
-  "sourceName": "Minimized.Clean.Architecture",
+  "sourceName": "CleanArchitecture",
   "sources": [
     {
       "modifiers": [

@@ -18,7 +18,6 @@
     </ItemGroup>
 
     <PropertyGroup>
-        <PackageId>Minimized.Clean.Architecure</PackageId>
         <PackageType>Template</PackageType>
         <PackageVersion>1.0.0</PackageVersion>
         <Title>Minimized Clean Architecture</Title>
