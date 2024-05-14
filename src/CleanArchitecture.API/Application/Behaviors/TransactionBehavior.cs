@@ -1,9 +1,9 @@
-using CleanArchitecture.API.Extensions;
+using CleanArchitecture.API.Application.Extensions;
 using CleanArchitecture.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanArchitecture.API.Behaviors;
+namespace CleanArchitecture.API.Application.Behaviors;
 
 public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
 {

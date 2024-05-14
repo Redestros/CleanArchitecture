@@ -1,7 +1,7 @@
-using CleanArchitecture.API.Extensions;
+using CleanArchitecture.API.Application.Extensions;
 using MediatR;
 
-namespace CleanArchitecture.API.Behaviors;
+namespace CleanArchitecture.API.Application.Behaviors;
 
 public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
 {

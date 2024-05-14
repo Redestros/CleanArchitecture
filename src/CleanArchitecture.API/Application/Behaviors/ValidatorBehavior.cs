@@ -1,9 +1,9 @@
-using CleanArchitecture.API.Extensions;
+using CleanArchitecture.API.Application.Extensions;
 using CleanArchitecture.Core.Exceptions;
 using FluentValidation;
 using MediatR;
 
-namespace CleanArchitecture.API.Behaviors;
+namespace CleanArchitecture.API.Application.Behaviors;
 
 public class ValidatorBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
 {

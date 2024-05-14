@@ -1,8 +1,8 @@
-using CleanArchitecture.API.Behaviors;
+using CleanArchitecture.API.Application.Behaviors;
 using CleanArchitecture.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanArchitecture.API.Extensions;
+namespace CleanArchitecture.API.Application.Extensions;
 
 internal static class ServiceRegistrationExtensions
 {

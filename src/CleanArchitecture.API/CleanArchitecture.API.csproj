@@ -16,4 +16,8 @@
     <ProjectReference Include="..\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\" />
+  </ItemGroup>
+
 </Project>

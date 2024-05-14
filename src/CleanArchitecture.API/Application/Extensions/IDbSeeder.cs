@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanArchitecture.API.Extensions;
+namespace CleanArchitecture.API.Application.Extensions;
 
 public interface IDbSeeder<in TContext> where TContext : DbContext
 {

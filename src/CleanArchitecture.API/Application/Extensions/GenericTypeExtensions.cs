@@ -1,4 +1,4 @@
-namespace CleanArchitecture.API.Extensions;
+namespace CleanArchitecture.API.Application.Extensions;
 
 public static class GenericTypeExtensions
 {
