@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <PackageId>Minimized.CleanArchitecture.Template</PackageId>
+        <PackageId>Microservice.Template</PackageId>
         <TargetFramework>net8.0</TargetFramework>
         <IncludeContentInPack>true</IncludeContentInPack>
         <IncludeBuildOutput>false</IncludeBuildOutput>
@@ -20,15 +20,15 @@
     <PropertyGroup>
         <PackageType>Template</PackageType>
         <PackageVersion>1.0.0</PackageVersion>
-        <Title>Minimized Clean Architecture</Title>
+        <Title>Microservice Clean Architecture</Title>
         <Authors>Redestros</Authors>
         <Copyright>Redestros © 2024</Copyright>
-        <Description>A minimized clean architecure template with Core, Infrastructure and API projects</Description>
-        <PackageTags>c#;asp.net;core;clean-architectue;template</PackageTags>
-        <PackageProjectUrl>https://github.com/Redestros/CleanArchitecture</PackageProjectUrl>
+        <Description>A microservice clean architecure template with Core, Infrastructure and API projects</Description>
+        <PackageTags>c#;asp.net;core;microservice-template;clean-architecture;template</PackageTags>
+        <PackageProjectUrl>https://github.com/Redestros/MicroserviceTemplate</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/Redestros/CleanArchitecture</RepositoryUrl>
+        <RepositoryUrl>https://github.com/Redestros/MicroserviceTemplate</RepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 </Project>

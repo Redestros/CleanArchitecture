@@ -1,14 +1,14 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Ahmed Mohamed El Ahmar @Redestros",
-  "classifications": [ "Web", "ASP.NET", "Clean Architecture" ],
+  "classifications": [ "Web", "ASP.NET", "Microservice", "Clean Architecture" ],
   "tags": {
     "language": "C#"
   },
-  "identity": "Minimized.CleanArchitecture.Template",
-  "name": "Minimized ASP.NET Clean Architecture Solution",
-  "shortName": "min-clean-arch",
-  "sourceName": "CleanArchitecture",
+  "identity": "Microservice.CleanArchitecture.Template",
+  "name": "Microservice ASP.NET Clean Architecture Solution",
+  "shortName": "micro-clean-arch",
+  "sourceName": "Microservice",
   "sources": [
     {
       "modifiers": [
