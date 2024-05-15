@@ -13,7 +13,7 @@ public class Order : Entity, IAggregateRoot
 
     public Buyer Buyer { get; }
 
-    private readonly List<OrderItem> _items;
+    private readonly List<OrderItem> _items = [];
 
     public IReadOnlyCollection<OrderItem> Items => _items.AsReadOnly();
     
@@ -22,13 +22,13 @@ public class Order : Entity, IAggregateRoot
     public int? PaymentId { get; private set; }
     
 
+    #pragma warning disable CS8618
     protected Order()
     {
-        _items = new List<OrderItem>();
     }
 
     public Order(string userId, string userName, Address address, int cardTypeId, string cardNumber, string cardSecurityNumber,
-            string cardHolderName, DateTime cardExpiration, int? buyerId = null, int? paymentMethodId = null) : this()
+            string cardHolderName, DateTime cardExpiration, int? buyerId = null, int? paymentMethodId = null)
     {
         BuyerId = buyerId;
         PaymentId = paymentMethodId;

@@ -5,9 +5,15 @@ namespace Microservice.Core.Aggregates.BuyerAggregate;
 public class Buyer : Entity, IAggregateRoot
 {
     public string Name { get; private set; }
-    private List<PaymentMethod> _paymentMethods;
-    public IEnumerable<PaymentMethod> PaymentMethods => _paymentMethods.AsReadOnly();
+    public string IdentityGuid { get; private set; }
     
+    private List<PaymentMethod> _paymentMethods = [];
+    public IEnumerable<PaymentMethod> PaymentMethods => _paymentMethods.AsReadOnly();
+
+    #pragma warning disable CS8618
+    public Buyer()
+    {
+    }
 
     public Buyer(string name)
     {

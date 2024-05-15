@@ -17,8 +17,4 @@
     <ProjectReference Include="..\Microservice.Infrastructure\Microservice.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Application\" />
-  </ItemGroup>
-
 </Project>
