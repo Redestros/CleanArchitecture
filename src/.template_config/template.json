@@ -13,7 +13,7 @@
     {
       "modifiers": [
         {
-          "exclude": [ ".idea/**", ".template_config/**", ".vs/**" ]
+          "exclude": [ ".idea/**", ".DS_Store", ".template_config/**", ".vs/**" ]
         }
       ]
     }
