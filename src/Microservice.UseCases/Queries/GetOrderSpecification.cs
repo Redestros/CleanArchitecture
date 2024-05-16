@@ -8,8 +8,6 @@ public sealed class GetOrderSpecification : Specification<Core.Aggregates.OrderA
     {
         Query.Where(x => x.Id == id);
         
-        Query.Include(x => x.Items);
-        
         Query.Select(order => new Order
         {
             OrderNumber = order.Id,
