@@ -1,6 +1,9 @@
+using Ardalis.Result;
+using Ardalis.Result.AspNetCore;
 using MediatR;
 using Microservice.UseCases.Commands;
 using Microservice.UseCases.Extensions;
+using Microservice.UseCases.Queries;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +11,7 @@ namespace Microservice.API.Apis;
 
 [ApiController]
 [Route("[controller]")]
+[TranslateResultToActionResult]
 public class OrderApis : ControllerBase
 {
     private readonly ILogger<OrderApis> _logger;
@@ -17,6 +21,14 @@ public class OrderApis : ControllerBase
     {
         _logger = logger;
         _mediator = mediator;
+    }
+
+    [HttpGet("{id}")]
+    public async Task<Result<Order>> GetOrder(int id)
+    {
+        var query = new GetOrderQuery(id);
+        var result = await _mediator.Send(query);
+        return result;
     }
 
     [HttpPost]
