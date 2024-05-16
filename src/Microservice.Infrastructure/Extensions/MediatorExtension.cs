@@ -5,9 +5,9 @@ namespace Microservice.Infrastructure.Extensions;
 
 internal static class MediatorExtension
 {
-    public static async Task DispatchDomainEventsAsync(this IMediator mediator, AppContext context)
+    public static async Task DispatchDomainEventsAsync(this IMediator mediator, AppDbContext dbContext)
     {
-        var domainEntities = context.ChangeTracker
+        var domainEntities = dbContext.ChangeTracker
             .Entries<Entity>()
             .Where(x => x.Entity.DomainEvents.Count != 0)
             .ToList();

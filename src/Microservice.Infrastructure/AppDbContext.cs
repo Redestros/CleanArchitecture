@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Microservice.Infrastructure;
 
-public class AppContext : DbContext, IUnitOfWork
+public class AppDbContext : DbContext, IUnitOfWork
 {
     private readonly IMediator _mediator;
     private IDbContextTransaction? _currentTransaction;
     public IDbContextTransaction? GetCurrentTransaction() => _currentTransaction;
 
-    public AppContext(DbContextOptions<AppContext> options, IMediator mediator) : base(options)
+    public AppDbContext(DbContextOptions<AppDbContext> options, IMediator mediator) : base(options)
     {
         _mediator = mediator;
     }

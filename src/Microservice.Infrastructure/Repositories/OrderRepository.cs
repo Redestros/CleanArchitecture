@@ -6,27 +6,27 @@ namespace Microservice.Infrastructure.Repositories;
 
 public class OrderRepository : IOrderRepository
 {
-    private readonly AppContext _context;
+    private readonly AppDbContext _dbContext;
 
-    public IUnitOfWork UnitOfWork => _context;
+    public IUnitOfWork UnitOfWork => _dbContext;
 
-    public OrderRepository(AppContext context)
+    public OrderRepository(AppDbContext dbContext)
     {
-        _context = context ?? throw new ArgumentNullException(nameof(context));
+        _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
 
     public Order Add(Order order)
     {
-        return _context.Set<Order>().Add(order).Entity;
+        return _dbContext.Set<Order>().Add(order).Entity;
     }
 
     public async Task<Order?> GetAsync(int orderId)
     {
-        var order = await _context.Set<Order>().FindAsync(orderId);
+        var order = await _dbContext.Set<Order>().FindAsync(orderId);
 
         if (order != null)
         {
-            await _context.Entry(order)
+            await _dbContext.Entry(order)
                 .Collection(i => i.Items)
                 .LoadAsync();
         }
@@ -36,6 +36,6 @@ public class OrderRepository : IOrderRepository
 
     public void Update(Order order)
     {
-        _context.Entry(order).State = EntityState.Modified;
+        _dbContext.Entry(order).State = EntityState.Modified;
     }
 }

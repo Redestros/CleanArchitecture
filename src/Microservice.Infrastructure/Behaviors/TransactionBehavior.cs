@@ -8,12 +8,12 @@ namespace Microservice.Infrastructure.Behaviors;
 public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
 {
     private readonly ILogger<TransactionBehavior<TRequest, TResponse>> _logger;
-    private readonly AppContext _dbContext;
+    private readonly AppDbContext _dbDbContext;
 
-    public TransactionBehavior(ILogger<TransactionBehavior<TRequest, TResponse>> logger, AppContext dbContext)
+    public TransactionBehavior(ILogger<TransactionBehavior<TRequest, TResponse>> logger, AppDbContext dbDbContext)
     {
         _logger = logger;
-        _dbContext = dbContext;
+        _dbDbContext = dbDbContext;
     }
 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
@@ -23,17 +23,17 @@ public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TReque
 
         try
         {
-            if (_dbContext.HasActiveTransaction)
+            if (_dbDbContext.HasActiveTransaction)
             {
                 return await next();
             }
 
-            var strategy = _dbContext.Database.CreateExecutionStrategy();
+            var strategy = _dbDbContext.Database.CreateExecutionStrategy();
 
             await strategy.ExecuteAsync(async () =>
             {
 
-                await using var transaction = await _dbContext.BeginTransactionAsync();
+                await using var transaction = await _dbDbContext.BeginTransactionAsync();
                 using (_logger.BeginScope(new List<KeyValuePair<string, object>> { new("TransactionContext", transaction.TransactionId) }))
                 {
                     _logger.LogInformation("Begin transaction {TransactionId} for {CommandName} ({@Command})", transaction.TransactionId, typeName, request);
@@ -42,7 +42,7 @@ public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TReque
 
                     _logger.LogInformation("Commit transaction {TransactionId} for {CommandName}", transaction.TransactionId, typeName);
 
-                    await _dbContext.CommitTransactionAsync(transaction);
+                    await _dbDbContext.CommitTransactionAsync(transaction);
 
                 }
 

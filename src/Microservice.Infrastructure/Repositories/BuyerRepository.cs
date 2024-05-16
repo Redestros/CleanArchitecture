@@ -6,31 +6,31 @@ namespace Microservice.Infrastructure.Repositories;
 
 public class BuyerRepository : IBuyerRepository
 {
-    private readonly AppContext _context;
-    public IUnitOfWork UnitOfWork => _context;
+    private readonly AppDbContext _dbContext;
+    public IUnitOfWork UnitOfWork => _dbContext;
 
-    public BuyerRepository(AppContext context)
+    public BuyerRepository(AppDbContext dbContext)
     {
-        _context = context ?? throw new ArgumentNullException(nameof(context));
+        _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
 
     public Buyer Add(Buyer buyer)
     {
-        return _context.Set<Buyer>()
+        return _dbContext.Set<Buyer>()
             .Add(buyer)
             .Entity;
     }
 
     public Buyer Update(Buyer buyer)
     {
-        return _context.Set<Buyer>()
+        return _dbContext.Set<Buyer>()
             .Update(buyer)
             .Entity;
     }
 
     public async Task<Buyer> FindAsync(string identity)
     {
-        var buyer = await _context.Set<Buyer>()
+        var buyer = await _dbContext.Set<Buyer>()
             .Include(b => b.PaymentMethods)
             .Where(b => b.IdentityGuid == identity)
             .SingleOrDefaultAsync();
@@ -40,7 +40,7 @@ public class BuyerRepository : IBuyerRepository
 
     public async Task<Buyer> FindByIdAsync(int id)
     {
-        var buyer = await _context.Set<Buyer>()
+        var buyer = await _dbContext.Set<Buyer>()
             .Include(b => b.PaymentMethods)
             .Where(b => b.Id == id)
             .SingleOrDefaultAsync();

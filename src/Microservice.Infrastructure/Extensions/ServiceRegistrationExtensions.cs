@@ -1,4 +1,5 @@
 using MediatR;
+using Microservice.Core.Abstractions;
 using Microservice.Core.Aggregates.BuyerAggregate;
 using Microservice.Core.Aggregates.OrderAggregate;
 using Microservice.Infrastructure.Behaviors;
@@ -15,14 +16,16 @@ public static class ServiceRegistrationExtensions
     public static void AddInfrastructureServices(this IHostApplicationBuilder builder)
     {
         var services = builder.Services;
-        
-        services.AddDbContext<AppContext>(options =>
+
+        services.AddDbContext<AppDbContext>(options =>
         {
             options.UseSqlServer(builder.Configuration.GetConnectionString("OrderingDb"));
         });
-        
-        services.AddTransient(typeof(IPipelineBehavior<,> ), typeof(TransactionBehavior<,> ));
-        
+
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionBehavior<,>));
+
+        services.AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
+
         services.AddScoped<IBuyerRepository, BuyerRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
     }
