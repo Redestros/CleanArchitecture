@@ -1,4 +1,4 @@
-namespace Microservice.API.Application.Commands;
+namespace Microservice.UseCases.Commands;
 
 public class BasketItem
 {

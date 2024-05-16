@@ -1,16 +1,16 @@
 using MediatR;
-using Microservice.API.Application.Extensions;
-using Microservice.Infrastructure;
+using Microservice.UseCases.Extensions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
-namespace Microservice.API.Application.Behaviors;
+namespace Microservice.Infrastructure.Behaviors;
 
 public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
 {
     private readonly ILogger<TransactionBehavior<TRequest, TResponse>> _logger;
-    private readonly OrderingContext _dbContext;
+    private readonly AppContext _dbContext;
 
-    public TransactionBehavior(ILogger<TransactionBehavior<TRequest, TResponse>> logger, OrderingContext dbContext)
+    public TransactionBehavior(ILogger<TransactionBehavior<TRequest, TResponse>> logger, AppContext dbContext)
     {
         _logger = logger;
         _dbContext = dbContext;

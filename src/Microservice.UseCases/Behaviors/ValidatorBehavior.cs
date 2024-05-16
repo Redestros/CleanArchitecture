@@ -1,9 +1,10 @@
 using FluentValidation;
 using MediatR;
-using Microservice.API.Application.Extensions;
 using Microservice.Core.Exceptions;
+using Microservice.UseCases.Extensions;
+using Microsoft.Extensions.Logging;
 
-namespace Microservice.API.Application.Behaviors;
+namespace Microservice.UseCases.Behaviors;
 
 public class ValidatorBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
 {

@@ -1,4 +1,4 @@
-using Microservice.Core;
+using Microservice.Core.Abstractions;
 using Microservice.Core.Aggregates.BuyerAggregate;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,10 +6,10 @@ namespace Microservice.Infrastructure.Repositories;
 
 public class BuyerRepository : IBuyerRepository
 {
-    private readonly OrderingContext _context;
+    private readonly AppContext _context;
     public IUnitOfWork UnitOfWork => _context;
 
-    public BuyerRepository(OrderingContext context)
+    public BuyerRepository(AppContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }

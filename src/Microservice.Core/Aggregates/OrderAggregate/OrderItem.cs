@@ -1,3 +1,4 @@
+using Microservice.Core.Abstractions;
 using Microservice.Core.Exceptions;
 
 namespace Microservice.Core.Aggregates.OrderAggregate;

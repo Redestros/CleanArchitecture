@@ -1,4 +1,4 @@
-using Microservice.Core;
+using Microservice.Core.Abstractions;
 using Microservice.Core.Aggregates.OrderAggregate;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,11 +6,11 @@ namespace Microservice.Infrastructure.Repositories;
 
 public class OrderRepository : IOrderRepository
 {
-    private readonly OrderingContext _context;
+    private readonly AppContext _context;
 
     public IUnitOfWork UnitOfWork => _context;
 
-    public OrderRepository(OrderingContext context)
+    public OrderRepository(AppContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }

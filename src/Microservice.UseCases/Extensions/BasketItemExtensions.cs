@@ -1,6 +1,6 @@
-using Microservice.API.Application.Commands;
+using Microservice.UseCases.Commands;
 
-namespace Microservice.API.Extensions;
+namespace Microservice.UseCases.Extensions;
 
 public static class BasketItemExtensions
 {

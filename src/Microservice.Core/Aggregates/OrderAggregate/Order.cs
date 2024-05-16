@@ -1,3 +1,4 @@
+using Microservice.Core.Abstractions;
 using Microservice.Core.Aggregates.BuyerAggregate;
 using Microservice.Core.Events;
 using Microservice.Core.Exceptions;

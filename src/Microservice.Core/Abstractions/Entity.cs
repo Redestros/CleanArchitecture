@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Microservice.Core;
+namespace Microservice.Core.Abstractions;
 
 public abstract class Entity
 {

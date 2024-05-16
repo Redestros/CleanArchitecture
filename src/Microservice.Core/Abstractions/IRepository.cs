@@ -1,4 +1,4 @@
-namespace Microservice.Core;
+namespace Microservice.Core.Abstractions;
 
 public interface IRepository<T> where T : IAggregateRoot
 {

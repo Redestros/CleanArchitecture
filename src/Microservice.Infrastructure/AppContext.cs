@@ -1,20 +1,32 @@
 using System.Data;
 using MediatR;
-using Microservice.Core;
+using Microservice.Core.Abstractions;
+using Microservice.Infrastructure.EntityConfigurations;
+using Microservice.Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Microservice.Infrastructure;
 
-public class OrderingContext : DbContext, IUnitOfWork
+public class AppContext : DbContext, IUnitOfWork
 {
     private readonly IMediator _mediator;
     private IDbContextTransaction? _currentTransaction;
     public IDbContextTransaction? GetCurrentTransaction() => _currentTransaction;
 
-    public OrderingContext(DbContextOptions<OrderingContext> options, IMediator mediator) : base(options)
+    public AppContext(DbContextOptions<AppContext> options, IMediator mediator) : base(options)
     {
         _mediator = mediator;
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfiguration(new OrderEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new OrderItemEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new BuyerEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new CardTypeEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new PaymentMethodEntityConfiguration());
     }
 
     public bool HasActiveTransaction => _currentTransaction != null;

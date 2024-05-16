@@ -1,4 +1,4 @@
-namespace Microservice.API.Application.Extensions;
+namespace Microservice.UseCases.Extensions;
 
 public static class GenericTypeExtensions
 {

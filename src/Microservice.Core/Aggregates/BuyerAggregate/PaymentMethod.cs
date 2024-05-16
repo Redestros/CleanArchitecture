@@ -1,3 +1,4 @@
+using Microservice.Core.Abstractions;
 using Microservice.Core.Exceptions;
 
 namespace Microservice.Core.Aggregates.BuyerAggregate;
@@ -10,7 +11,10 @@ public class PaymentMethod : Entity
     private string _cardHolderName;
     private readonly DateTime _expiration;
     private readonly int _cardTypeId;
+
+    public CardType CardType { get; private set; }
     
+    #pragma warning disable
     protected PaymentMethod(){}
 
     public PaymentMethod(int cardTypeId, string alias, string cardNumber, string securityNumber, string cardHolderName,

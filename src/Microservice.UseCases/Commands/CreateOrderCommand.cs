@@ -1,7 +1,7 @@
 using MediatR;
-using Microservice.API.Extensions;
+using Microservice.UseCases.Extensions;
 
-namespace Microservice.API.Application.Commands;
+namespace Microservice.UseCases.Commands;
 
 public class CreateOrderCommand : IRequest<bool>
 {

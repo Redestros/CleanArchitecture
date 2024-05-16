@@ -1,3 +1,5 @@
+using Microservice.Core.Abstractions;
+
 namespace Microservice.Core.Aggregates.BuyerAggregate;
 
 public interface IBuyerRepository : IRepository<Buyer>

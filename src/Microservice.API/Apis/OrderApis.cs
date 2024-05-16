@@ -1,6 +1,6 @@
 using MediatR;
-using Microservice.API.Application.Commands;
-using Microservice.API.Application.Extensions;
+using Microservice.UseCases.Commands;
+using Microservice.UseCases.Extensions;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 

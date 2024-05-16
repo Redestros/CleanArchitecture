@@ -1,3 +1,4 @@
+using Microservice.Core.Abstractions;
 using Microservice.Core.Events;
 
 namespace Microservice.Core.Aggregates.BuyerAggregate;

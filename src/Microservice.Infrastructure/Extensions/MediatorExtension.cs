@@ -1,11 +1,11 @@
 using MediatR;
-using Microservice.Core;
+using Microservice.Core.Abstractions;
 
-namespace Microservice.Infrastructure;
+namespace Microservice.Infrastructure.Extensions;
 
 internal static class MediatorExtension
 {
-    public static async Task DispatchDomainEventsAsync(this IMediator mediator, OrderingContext context)
+    public static async Task DispatchDomainEventsAsync(this IMediator mediator, AppContext context)
     {
         var domainEntities = context.ChangeTracker
             .Entries<Entity>()

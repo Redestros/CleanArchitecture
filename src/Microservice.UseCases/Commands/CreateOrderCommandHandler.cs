@@ -1,7 +1,8 @@
 using MediatR;
 using Microservice.Core.Aggregates.OrderAggregate;
+using Microsoft.Extensions.Logging;
 
-namespace Microservice.API.Application.Commands;
+namespace Microservice.UseCases.Commands;
 
 public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, bool>
 {
