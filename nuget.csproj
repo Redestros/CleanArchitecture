@@ -12,7 +12,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="src\**\*" Exclude="**\bin\**;**\obj\**;**\.git\**;**\.github\**;**\*.user;**\.vs\**;**\.vscode\**;**\.gitignore;**\sample\**" />
+        <Content Include=".\**\*" Exclude="**\bin\**;**\obj\**;**\.git\**;**\.github\**;**\*.user;**\.vs\**;**\.vscode\**;**\.gitignore;**\LICENSE;**\nuget.csproj;" />
         <Compile Remove="**\*" />
         <None Include="README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>

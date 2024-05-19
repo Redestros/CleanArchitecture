@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 
+#
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{81F500DF-CADA-4C44-BFD9-FDEDC6DF1CDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.API", "src\Microservice.API\Microservice.API.csproj", "{234C1E2B-8DB3-43D5-A70E-A4115FAC9CD3}"
@@ -10,6 +10,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Infrastructure", "src\Microservice.Infrastructure\Microservice.Infrastructure.csproj", "{96954C72-16C8-4846-AF9A-5A51E9C6188F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.UseCases", "src\Microservice.UseCases\Microservice.UseCases.csproj", "{97726A47-AD9E-43CF-B48C-C60E0637ED69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{6AC63180-C327-4D94-8062-E6E6EBA333C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Example.API", "example\Microservice.Example.API\Microservice.Example.API.csproj", "{99DA32B3-3C28-488B-9733-6D342E1E285C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Example.Core", "example\Microservice.Example.Core\Microservice.Example.Core.csproj", "{E207212E-C1B4-4072-AC47-140FF8CC1FF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Example.Infrastructure", "example\Microservice.Example.Infrastructure\Microservice.Example.Infrastructure.csproj", "{67B12FC9-C8DD-47B8-B1B1-D8688232D503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Example.UseCases", "example\Microservice.Example.UseCases\Microservice.Example.UseCases.csproj", "{6A62396F-A525-4C0C-BA42-23858BA18F5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,11 +43,31 @@ Global
 		{97726A47-AD9E-43CF-B48C-C60E0637ED69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97726A47-AD9E-43CF-B48C-C60E0637ED69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97726A47-AD9E-43CF-B48C-C60E0637ED69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DA32B3-3C28-488B-9733-6D342E1E285C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DA32B3-3C28-488B-9733-6D342E1E285C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DA32B3-3C28-488B-9733-6D342E1E285C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DA32B3-3C28-488B-9733-6D342E1E285C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E207212E-C1B4-4072-AC47-140FF8CC1FF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E207212E-C1B4-4072-AC47-140FF8CC1FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E207212E-C1B4-4072-AC47-140FF8CC1FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E207212E-C1B4-4072-AC47-140FF8CC1FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B12FC9-C8DD-47B8-B1B1-D8688232D503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B12FC9-C8DD-47B8-B1B1-D8688232D503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B12FC9-C8DD-47B8-B1B1-D8688232D503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B12FC9-C8DD-47B8-B1B1-D8688232D503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A62396F-A525-4C0C-BA42-23858BA18F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A62396F-A525-4C0C-BA42-23858BA18F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A62396F-A525-4C0C-BA42-23858BA18F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A62396F-A525-4C0C-BA42-23858BA18F5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{234C1E2B-8DB3-43D5-A70E-A4115FAC9CD3} = {81F500DF-CADA-4C44-BFD9-FDEDC6DF1CDB}
 		{1D79CCE4-0AF5-4DC9-A2C7-C220F97B059D} = {81F500DF-CADA-4C44-BFD9-FDEDC6DF1CDB}
 		{96954C72-16C8-4846-AF9A-5A51E9C6188F} = {81F500DF-CADA-4C44-BFD9-FDEDC6DF1CDB}
 		{97726A47-AD9E-43CF-B48C-C60E0637ED69} = {81F500DF-CADA-4C44-BFD9-FDEDC6DF1CDB}
+		{99DA32B3-3C28-488B-9733-6D342E1E285C} = {6AC63180-C327-4D94-8062-E6E6EBA333C0}
+		{E207212E-C1B4-4072-AC47-140FF8CC1FF7} = {6AC63180-C327-4D94-8062-E6E6EBA333C0}
+		{67B12FC9-C8DD-47B8-B1B1-D8688232D503} = {6AC63180-C327-4D94-8062-E6E6EBA333C0}
+		{6A62396F-A525-4C0C-BA42-23858BA18F5F} = {6AC63180-C327-4D94-8062-E6E6EBA333C0}
 	EndGlobalSection
 EndGlobal
