@@ -9,9 +9,10 @@ Welcome to the Clean Architecture Microservice Template built with .NET! This te
 3. [Use Cases Project](#use-cases-project)
 4. [Infrastructure Project](#infrastructure-project)
 5. [API Project](#api-project)
-6. [Getting Started](#getting-started)
-7. [Contributing](#contributing)
-8. [License](#license)
+6. [Design Decisions](#design-decisions)
+7. [Getting Started](#getting-started)
+8. [Contributing](#contributing)
+9. [License](#license)
 
 ## Project Structure
 
@@ -58,6 +59,25 @@ The API project represents the presentation layer and contains:
 
 - **APIs**: Controllers and endpoints to expose application functionality.
 - **Service Registration**: Configuration for dependency injection and service setup.
+
+## Design Decisions
+
+### Use Cases Project and Repositories
+
+The Use Cases project relies on repositories to write and retrieve data. The Core project exposes two kinds of repositories:
+
+- **IRepository<T>**: This repository interface is primarily dedicated to write operations but can also include retrieve methods.
+- **IReadRepository<T>**: This repository interface is dedicated to pure read operations. It leverages specifications to encapsulate query logic, ensuring that read operations are efficient and maintainable.
+
+### Repository Interfaces
+
+- **IRepository<T>**:
+    - Primarily handles create, update, and delete operations.
+    - Can include read methods if needed, but its main focus is on write operations.
+
+- **IReadRepository<T>**:
+    - Dedicated to handling read operations.
+    - Utilizes specifications to define queries, which promotes reusability and separation of concerns in data retrieval logic.
 
 ## Getting Started
 
