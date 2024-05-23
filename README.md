@@ -74,6 +74,7 @@ The Use Cases project relies on repositories to write and retrieve data. The Cor
 - **IRepository<T>**:
     - Primarily handles create, update, and delete operations.
     - Can include read methods if needed, but its main focus is on write operations.
+    - Has a reference to IUnitOfWork. The UoW pattern ensures that all changes to an aggregate are committed as a single transaction. This means that either all changes are saved to the database, or none are, preserving the consistency of the aggregate.
 
 - **IReadRepository<T>**:
     - Dedicated to handling read operations.
