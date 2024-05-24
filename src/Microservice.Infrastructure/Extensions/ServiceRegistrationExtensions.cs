@@ -1,7 +1,5 @@
 using MediatR;
 using Microservice.Core.Abstractions;
-using Microservice.Core.Aggregates.BuyerAggregate;
-using Microservice.Core.Aggregates.OrderAggregate;
 using Microservice.Infrastructure.Behaviors;
 using Microservice.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -19,14 +17,11 @@ public static class ServiceRegistrationExtensions
 
         services.AddDbContext<AppDbContext>(options =>
         {
-            options.UseSqlServer(builder.Configuration.GetConnectionString("OrderingDb"));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
         });
 
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionBehavior<,>));
 
         services.AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
-
-        services.AddScoped<IBuyerRepository, BuyerRepository>();
-        services.AddScoped<IOrderRepository, OrderRepository>();
     }
 }

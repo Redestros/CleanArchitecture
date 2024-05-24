@@ -1,7 +1,6 @@
 using System.Data;
 using MediatR;
 using Microservice.Core.Abstractions;
-using Microservice.Infrastructure.EntityConfigurations;
 using Microservice.Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -22,11 +21,7 @@ public class AppDbContext : DbContext, IUnitOfWork
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.ApplyConfiguration(new OrderEntityConfiguration());
-        modelBuilder.ApplyConfiguration(new OrderItemEntityConfiguration());
-        modelBuilder.ApplyConfiguration(new BuyerEntityConfiguration());
-        modelBuilder.ApplyConfiguration(new CardTypeEntityConfiguration());
-        modelBuilder.ApplyConfiguration(new PaymentMethodEntityConfiguration());
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
     }
 
     public bool HasActiveTransaction => _currentTransaction != null;
