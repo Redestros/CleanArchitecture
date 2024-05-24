@@ -42,7 +42,8 @@ public class AppDbContext : DbContext, IUnitOfWork
 
     public async Task<IDbContextTransaction> BeginTransactionAsync()
     {
-        if (_currentTransaction != null) return null;
+        if (_currentTransaction != null)
+            throw new InvalidOperationException("Current transaction exists");
 
         _currentTransaction = await Database.BeginTransactionAsync(IsolationLevel.ReadCommitted);
 

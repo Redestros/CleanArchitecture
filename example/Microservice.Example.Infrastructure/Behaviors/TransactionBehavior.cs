@@ -48,7 +48,7 @@ public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TReque
 
             });
 
-            return response;
+            return response!;
         }
         catch (Exception ex)
         {
