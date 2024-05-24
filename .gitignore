@@ -1,4 +1,5 @@
 .idea/
+.sonarqube/
 .DS_Store
 bin/
 obj/
