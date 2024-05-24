@@ -27,7 +27,7 @@ public record OrderSummary
 {
     public int OrderNumber { get; init; }
     public DateTime Date { get; init; }
-    public string Status { get; init; }
+    public string Status { get; init; } = string.Empty;
     public double Total { get; init; }
 }
 
