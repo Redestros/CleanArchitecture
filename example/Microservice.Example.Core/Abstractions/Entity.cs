@@ -6,7 +6,7 @@ public abstract class Entity
 {
     public int Id { get; protected set; }
     
-    private List<INotification> _domainEvents = [];
+    private readonly List<INotification> _domainEvents = [];
 
     public IReadOnlyCollection<INotification> DomainEvents => _domainEvents.AsReadOnly();
 

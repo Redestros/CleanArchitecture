@@ -8,7 +8,7 @@ public class Buyer : Entity, IAggregateRoot
     public string Name { get; private set; }
     public string IdentityGuid { get; private set; }
     
-    private List<PaymentMethod> _paymentMethods = [];
+    private readonly List<PaymentMethod> _paymentMethods;
     public IEnumerable<PaymentMethod> PaymentMethods => _paymentMethods.AsReadOnly();
 
     #pragma warning disable CS8618
@@ -19,7 +19,7 @@ public class Buyer : Entity, IAggregateRoot
     public Buyer(string name)
     {
         Name = !string.IsNullOrWhiteSpace(name) ? name : throw new ArgumentNullException(nameof(name));
-        _paymentMethods = new List<PaymentMethod>();
+        _paymentMethods = [];
     }
 
     public PaymentMethod VerifyOrAddPaymentMethod(

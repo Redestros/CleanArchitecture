@@ -5,8 +5,8 @@ namespace Microservice.Core.Abstractions;
 public abstract class Entity
 {
     public int Id { get; protected set; }
-    
-    private List<INotification> _domainEvents = [];
+
+    private readonly List<INotification> _domainEvents = [];
 
     public IReadOnlyCollection<INotification> DomainEvents => _domainEvents.AsReadOnly();
 
@@ -17,7 +17,7 @@ public abstract class Entity
 
     public void RemoveDomainEvent(INotification eventItem)
     {
-        _domainEvents.Remove(eventItem);
+        _domainEvents?.Remove(eventItem);
     }
 
     public void ClearDomainEvents()

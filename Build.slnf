@@ -1,0 +1,15 @@
+﻿{
+  "solution": {
+    "path": "MicroserviceTemplate.sln",
+    "projects": [
+      "example\\Microservice.Example.API\\Microservice.Example.API.csproj",
+      "example\\Microservice.Example.Core\\Microservice.Example.Core.csproj",
+      "example\\Microservice.Example.Infrastructure\\Microservice.Example.Infrastructure.csproj",
+      "example\\Microservice.Example.UseCases\\Microservice.Example.UseCases.csproj",
+      "src\\Microservice.API\\Microservice.API.csproj",
+      "src\\Microservice.Core\\Microservice.Core.csproj",
+      "src\\Microservice.Infrastructure\\Microservice.Infrastructure.csproj",
+      "src\\Microservice.UseCases\\Microservice.UseCases.csproj"
+    ]
+  }
+}

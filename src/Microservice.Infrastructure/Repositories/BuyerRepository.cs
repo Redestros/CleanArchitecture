@@ -28,17 +28,17 @@ public class BuyerRepository : IBuyerRepository
             .Entity;
     }
 
-    public async Task<Buyer> FindAsync(string identity)
+    public async Task<Buyer?> FindAsync(string buyerIdentityGuid)
     {
         var buyer = await _dbContext.Set<Buyer>()
             .Include(b => b.PaymentMethods)
-            .Where(b => b.IdentityGuid == identity)
+            .Where(b => b.IdentityGuid == buyerIdentityGuid)
             .SingleOrDefaultAsync();
 
         return buyer;
     }
 
-    public async Task<Buyer> FindByIdAsync(int id)
+    public async Task<Buyer?> FindByIdAsync(int id)
     {
         var buyer = await _dbContext.Set<Buyer>()
             .Include(b => b.PaymentMethods)
