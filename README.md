@@ -80,6 +80,20 @@ The Use Cases project relies on repositories to write and retrieve data. The Cor
     - Dedicated to handling read operations.
     - Utilizes specifications to define queries, which promotes reusability and separation of concerns in data retrieval logic.
 
+### HILO
+
+The Hi/Lo algorithm is a technique for generating unique identifiers for database entities. It's particularly useful in scenarios where an application needs to assign IDs to entities even before they are persisted in the database. This aligns well with the principles of Domain-Driven Design (DDD).
+
+This algorithm utilizes two values:
+- Hi: A high-value number obtained from the database. This value is typically retrieved through a dedicated table or sequence. 
+- Lo: A low-value counter maintained by the application. It has a predefined range (often called incrementSize).
+
+The Hi/Lo algorithm combines these values to generate a unique identifier. The formula usually involves multiplying hi by the incrementSize and adding the current lo value.
+Once an identifier is generated using the current lo, the counter is incremented.
+
+In DDD, aggregates are groups of related entities that are treated as a single unit of consistency. They encapsulate complex domain logic and ensure the data within the aggregate remains consistent.
+
+To establish relationships between entities within an aggregate, and to perform operations that involve these relationships, unique identifiers are crucial. Hi/Lo allows assigning these IDs even before persistence, enabling the application to manage the aggregate's internal structure and behavior effectively.
 ## Getting Started
 
 ## Contributing
