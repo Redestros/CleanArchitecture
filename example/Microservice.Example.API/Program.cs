@@ -9,7 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddApplicationServices();
 builder.AddInfrastructureServices();
 
-builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Configuration));
+builder.Host.UseSerilog((_, config) =>
+{
+    config.ReadFrom.Configuration(builder.Configuration);
+    config.WriteTo.OpenTelemetry(options =>
+    {
+        options.Endpoint = "http://localhost:4317";
+        options.ResourceAttributes.Add("service.name", "microservice-example");
+    });
+});
 
 builder.ConfigureOpenTelemetry();
 
