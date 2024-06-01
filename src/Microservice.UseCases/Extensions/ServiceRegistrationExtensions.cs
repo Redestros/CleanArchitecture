@@ -1,6 +1,10 @@
 using Microservice.UseCases.Behaviors;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using OpenTelemetry.Logs;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Trace;
 
 namespace Microservice.UseCases.Extensions;
 
@@ -19,5 +23,39 @@ public static class ServiceRegistrationExtensions
         });
 
         services.AddControllers();
+    }
+    
+    public static IHostApplicationBuilder ConfigureOpenTelemetry(this IHostApplicationBuilder builder)
+    {
+        builder.Logging.AddOpenTelemetry(config =>
+        {
+            config.IncludeScopes = true;
+            config.IncludeFormattedMessage = true;
+        });
+
+        builder.Services.AddOpenTelemetry()
+            .WithMetrics(x =>
+            {
+                x.AddRuntimeInstrumentation()
+                    .AddMeter("Microsoft.AspNetCore.Hosting",
+                        "Microsoft.AspNetCore.Server.Kestrel",
+                        "System.Net.Http",
+                        "Microservice.Example.API");
+            })
+            .WithTracing(x => x.AddAspNetCoreInstrumentation()
+                .AddHttpClientInstrumentation());
+
+        builder.AddOpenTelemetryExporters();
+
+        return builder;
+    }
+
+    public static IHostApplicationBuilder AddOpenTelemetryExporters(this IHostApplicationBuilder builder)
+    {
+        builder.Services.Configure<OpenTelemetryLoggerOptions>(logger => logger.AddOtlpExporter());
+        builder.Services.ConfigureOpenTelemetryMeterProvider(metrics => metrics.AddOtlpExporter());
+        builder.Services.ConfigureOpenTelemetryTracerProvider(tracers => tracers.AddOtlpExporter());
+
+        return builder;
     }
 }
