@@ -40,7 +40,7 @@ public static class ServiceRegistrationExtensions
                     .AddMeter("Microsoft.AspNetCore.Hosting",
                         "Microsoft.AspNetCore.Server.Kestrel",
                         "System.Net.Http",
-                        "Microservice.Example.API");
+                        "Microservice.API");
             })
             .WithTracing(x => x.AddAspNetCoreInstrumentation()
                 .AddHttpClientInstrumentation());
@@ -50,12 +50,10 @@ public static class ServiceRegistrationExtensions
         return builder;
     }
 
-    public static IHostApplicationBuilder AddOpenTelemetryExporters(this IHostApplicationBuilder builder)
+    private static void AddOpenTelemetryExporters(this IHostApplicationBuilder builder)
     {
         builder.Services.Configure<OpenTelemetryLoggerOptions>(logger => logger.AddOtlpExporter());
         builder.Services.ConfigureOpenTelemetryMeterProvider(metrics => metrics.AddOtlpExporter());
         builder.Services.ConfigureOpenTelemetryTracerProvider(tracers => tracers.AddOtlpExporter());
-
-        return builder;
     }
 }
