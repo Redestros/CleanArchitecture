@@ -43,6 +43,7 @@ public static class ServiceRegistrationExtensions
                         "Microservice.Example.API");
             })
             .WithTracing(x => x.AddAspNetCoreInstrumentation()
+                .AddEntityFrameworkCoreInstrumentation()
                 .AddHttpClientInstrumentation());
 
         builder.AddOpenTelemetryExporters();

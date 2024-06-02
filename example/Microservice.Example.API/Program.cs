@@ -13,10 +13,15 @@ builder.Host.UseSerilog((_, config) =>
 {
     config.ReadFrom.Configuration(builder.Configuration);
 
-    var serviceName = builder.Configuration.GetValue<string>("OTEL_SERVICE_NAME") ?? "micro-service";
+    var serviceName = builder.Configuration.GetValue<string>("OTEL_SERVICE_NAME")
+                      ?? "micro-service";
+
+    var openTelemetryEndpoint = builder.Configuration.GetValue<string>("OTEL_EXPORTER_OTLP_ENDPOINT")
+                                ?? "http://localhost:4317";
+
     config.WriteTo.OpenTelemetry(options =>
     {
-        options.Endpoint = "http://localhost:4317";
+        options.Endpoint = openTelemetryEndpoint;
         options.ResourceAttributes.Add("service.name", serviceName);
     });
 });
