@@ -12,10 +12,12 @@ builder.AddInfrastructureServices();
 builder.Host.UseSerilog((_, config) =>
 {
     config.ReadFrom.Configuration(builder.Configuration);
+
+    var serviceName = builder.Configuration.GetValue<string>("OTEL_SERVICE_NAME") ?? "micro-service";
     config.WriteTo.OpenTelemetry(options =>
     {
         options.Endpoint = "http://localhost:4317";
-        options.ResourceAttributes.Add("service.name", "microservice-example");
+        options.ResourceAttributes.Add("service.name", serviceName);
     });
 });
 
