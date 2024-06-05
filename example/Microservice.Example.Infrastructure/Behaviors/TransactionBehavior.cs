@@ -5,6 +5,7 @@ using Microservice.Example.UseCases.Extensions;
 
 namespace Microservice.Example.Infrastructure.Behaviors;
 
+//src: https://github.com/dotnet/eShop/blob/main/src/Ordering.API/Application/Behaviors/TransactionBehavior.cs
 public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
 {
     private readonly ILogger<TransactionBehavior<TRequest, TResponse>> _logger;
