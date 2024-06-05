@@ -94,6 +94,43 @@ Once an identifier is generated using the current lo, the counter is incremented
 In DDD, aggregates are groups of related entities that are treated as a single unit of consistency. They encapsulate complex domain logic and ensure the data within the aggregate remains consistent.
 
 To establish relationships between entities within an aggregate, and to perform operations that involve these relationships, unique identifiers are crucial. Hi/Lo allows assigning these IDs even before persistence, enabling the application to manage the aggregate's internal structure and behavior effectively.
+
+### Transactions
+
+The `TransactionBehavior` mediator behavior is designed to wrap each request in a database transaction, ensuring that operations are executed within a transactional context. This guarantees that all changes are either committed or rolled back as a single unit, maintaining data integrity. If there's already an active transaction, the request proceeds without creating a new transaction.
+
+Creating transaction and executing request handlers are wrapper in a  execution strategy’s execute block.
+
+An execution strategy in Entity Framework Core handles transient failures such as network issues or database timeouts. These strategies are essential for ensuring the robustness and resilience of  application's database operations.
+
+```csharp
+var strategy = _dbDbContext.Database.CreateExecutionStrategy();
+```
+
+The `CreateExecutionStrategy` method returns an instance of `IExecutionStrategy`. The default implementation for SQL Server is `SqlServerRetryingExecutionStrategy`, which retries the operation if it encounters a transient failure.
+
+The execution strategy's `ExecuteAsync` method wraps the transactional code:
+
+```csharp
+await strategy.ExecuteAsync(async () =>
+{
+    await using var transaction = await _dbDbContext.BeginTransactionAsync();
+    using (_logger.BeginScope(new List<KeyValuePair<string, object>> { new("TransactionContext", transaction.TransactionId) }))
+    {
+        _logger.LogInformation("Begin transaction {TransactionId} for {CommandName} ({@Command})", transaction.TransactionId, typeName, request);
+
+        response = await next();
+
+        _logger.LogInformation("Commit transaction {TransactionId} for {CommandName}", transaction.TransactionId, typeName);
+
+        await _dbDbContext.CommitTransactionAsync(transaction);
+    }
+});
+```
+
+> **PS:** The BeginTransactionAsync() method will create a new transaction with database isolation level set to **ReadCommitted**
+>
+
 ## Getting Started
 
 ## Contributing
