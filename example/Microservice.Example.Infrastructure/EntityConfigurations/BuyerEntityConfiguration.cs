@@ -20,8 +20,5 @@ public class BuyerEntityConfiguration : IEntityTypeConfiguration<Buyer>
 
         builder.HasIndex(x => x.IdentityGuid)
             .IsUnique();
-
-        builder.HasMany(x => x.PaymentMethods)
-            .WithOne();
     }
 }

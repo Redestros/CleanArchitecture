@@ -25,8 +25,6 @@ public class AppDbContext : DbContext, IUnitOfWork
         modelBuilder.ApplyConfiguration(new OrderEntityConfiguration());
         modelBuilder.ApplyConfiguration(new OrderItemEntityConfiguration());
         modelBuilder.ApplyConfiguration(new BuyerEntityConfiguration());
-        modelBuilder.ApplyConfiguration(new CardTypeEntityConfiguration());
-        modelBuilder.ApplyConfiguration(new PaymentMethodEntityConfiguration());
     }
 
     public bool HasActiveTransaction => _currentTransaction != null;

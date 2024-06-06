@@ -25,11 +25,6 @@ public class OrderEntityConfiguration : IEntityTypeConfiguration<Order>
         builder.Property(x => x.PaymentId)
             .HasColumnName("PaymentMethodId");
 
-        builder.HasOne<PaymentMethod>()
-            .WithMany()
-            .HasForeignKey(x => x.PaymentId)
-            .OnDelete(DeleteBehavior.Restrict);
-
         builder.HasOne(x => x.Buyer)
             .WithMany()
             .HasForeignKey(x => x.BuyerId);

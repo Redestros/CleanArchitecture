@@ -31,7 +31,6 @@ public class BuyerRepository : IBuyerRepository
     public async Task<Buyer?> FindAsync(string buyerIdentityGuid)
     {
         var buyer = await _dbContext.Set<Buyer>()
-            .Include(b => b.PaymentMethods)
             .Where(b => b.IdentityGuid == buyerIdentityGuid)
             .SingleOrDefaultAsync();
 
@@ -41,7 +40,6 @@ public class BuyerRepository : IBuyerRepository
     public async Task<Buyer?> FindByIdAsync(int id)
     {
         var buyer = await _dbContext.Set<Buyer>()
-            .Include(b => b.PaymentMethods)
             .Where(b => b.Id == id)
             .SingleOrDefaultAsync();
 
