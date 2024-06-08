@@ -12,8 +12,19 @@ public class Buyer : Entity, IAggregateRoot
     {
     }
 
-    public Buyer(string name)
+    public Buyer(string name, string identityGuid)
     {
         Name = !string.IsNullOrWhiteSpace(name) ? name : throw new ArgumentNullException(nameof(name));
+        if (string.IsNullOrWhiteSpace(identityGuid))
+        {
+            throw new ArgumentNullException(nameof(identityGuid));
+        }
+
+        if (Guid.TryParse(identityGuid, out _) == false)
+        {
+            throw new ArgumentException("Should be a valid Guid", nameof(identityGuid));
+        }
+
+        IdentityGuid = name;
     }
 }

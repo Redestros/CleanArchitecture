@@ -1,6 +1,16 @@
+using Microservice.Example.Infrastructure.Extensions;
+using Microservice.Example.UseCases.Extensions;
+using Microservice.Example.Worker.Database;
 using Microservice.Example.Worker.Queue;
 
 var builder = Host.CreateApplicationBuilder(args);
+
+builder.AddApplicationServices();
+builder.AddInfrastructureServices();
+
+builder.Services.AddSingleton<IWorkItem, UsersInitiator>();
+
+builder.Services.AddSingleton<IWorkItem, StoppingItem>();
 
 builder.Services.AddSingleton<MonitorLoop>();
 builder.Services.AddHostedService<QueuedHostedService>();
