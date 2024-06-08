@@ -21,8 +21,6 @@ public static class ServiceRegistrationExtensions
             cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
             cfg.AddOpenBehavior(typeof(ValidatorBehavior<,>));
         });
-
-        services.AddControllers();
     }
     
     public static IHostApplicationBuilder ConfigureOpenTelemetry(this IHostApplicationBuilder builder)
