@@ -25,6 +25,6 @@ public class Buyer : Entity, IAggregateRoot
             throw new ArgumentException("Should be a valid Guid", nameof(identityGuid));
         }
 
-        IdentityGuid = name;
+        IdentityGuid = identityGuid;
     }
 }
