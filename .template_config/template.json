@@ -21,6 +21,11 @@
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": false
+    },
+    "includeWorker": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": false
     }
   },
   "sources": [
@@ -30,6 +35,12 @@
           "condition": "(!includeExample)",
           "exclude": [
             "example/**/*"
+          ]
+        },
+        {
+          "condition": "(!includeWorker)",
+          "exclude": [
+            "src/Microservice.Worker/**"
           ]
         },
         {
