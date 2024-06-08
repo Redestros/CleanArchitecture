@@ -50,7 +50,9 @@
             ".idea/**",
             ".DS_Store",
             ".template_config/**",
-            ".vs/**"
+            ".vs/**",
+            ".sonarqube/**",
+            "MinimalBuild.slnf"
           ],
           "rename": {
             "src/": ""
