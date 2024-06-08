@@ -5,7 +5,8 @@
       "src\\Microservice.API\\Microservice.API.csproj",
       "src\\Microservice.Core\\Microservice.Core.csproj",
       "src\\Microservice.Infrastructure\\Microservice.Infrastructure.csproj",
-      "src\\Microservice.UseCases\\Microservice.UseCases.csproj"
+      "src\\Microservice.UseCases\\Microservice.UseCases.csproj",
+      "src\\Microservice.Worker\\Microservice.Worker.csproj"
     ]
   }
 }
