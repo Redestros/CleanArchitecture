@@ -9,10 +9,11 @@ Welcome to the Clean Architecture Microservice Template built with .NET! This te
 3. [Use Cases Project](#use-cases-project)
 4. [Infrastructure Project](#infrastructure-project)
 5. [API Project](#api-project)
-6. [Design Decisions](#design-decisions)
-7. [Getting Started](#getting-started)
-8. [Contributing](#contributing)
-9. [License](#license)
+6. [Example Project](#example-folder)
+7. [Design Decisions](#design-decisions)
+8. [Getting Started](#getting-started)
+9. [Contributing](#contributing)
+10. [License](#license)
 
 ## Project Structure
 
@@ -59,6 +60,13 @@ The API project represents the presentation layer and contains:
 
 - **APIs**: Controllers and endpoints to expose application functionality.
 - **Service Registration**: Configuration for dependency injection and service setup.
+
+## Example Folder
+
+The example folder is a clone of template projects with actual aggregates and functionalities. 
+It is based on the [eShop reference application](https://github.com/dotnet/eShop) by Microsoft. 
+Although the example does not include all functionalities of the original repository, it is meant to keep a local 
+copy of the implementation of DDD fundamental concepts,  such as aggregates, domain events, etc.
 
 ## Design Decisions
 
