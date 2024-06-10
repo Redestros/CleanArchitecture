@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-#
+# 
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{81F500DF-CADA-4C44-BFD9-FDEDC6DF1CDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.API", "src\Microservice.API\Microservice.API.csproj", "{234C1E2B-8DB3-43D5-A70E-A4115FAC9CD3}"
@@ -30,6 +30,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Worker", "src\Microservice.Worker\Microservice.Worker.csproj", "{0EC34FAB-8AA5-45FD-930A-487A0D7256F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.Example.Worker", "example\Microservice.Example.Worker\Microservice.Example.Worker.csproj", "{8DFDEA2A-C72F-476B-BE87-A058AFCBD64B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D59DE8B1-5372-4BCA-8286-0CD557C61FE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.ArchTests", "tests\Microservice.ArchTests\Microservice.ArchTests.csproj", "{1DB83FEF-A2BD-4FC6-B0AD-81AD9B20CCFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +81,10 @@ Global
 		{8DFDEA2A-C72F-476B-BE87-A058AFCBD64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DFDEA2A-C72F-476B-BE87-A058AFCBD64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DFDEA2A-C72F-476B-BE87-A058AFCBD64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DB83FEF-A2BD-4FC6-B0AD-81AD9B20CCFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DB83FEF-A2BD-4FC6-B0AD-81AD9B20CCFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DB83FEF-A2BD-4FC6-B0AD-81AD9B20CCFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DB83FEF-A2BD-4FC6-B0AD-81AD9B20CCFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{234C1E2B-8DB3-43D5-A70E-A4115FAC9CD3} = {81F500DF-CADA-4C44-BFD9-FDEDC6DF1CDB}
@@ -89,5 +97,6 @@ Global
 		{6A62396F-A525-4C0C-BA42-23858BA18F5F} = {6AC63180-C327-4D94-8062-E6E6EBA333C0}
 		{0EC34FAB-8AA5-45FD-930A-487A0D7256F7} = {81F500DF-CADA-4C44-BFD9-FDEDC6DF1CDB}
 		{8DFDEA2A-C72F-476B-BE87-A058AFCBD64B} = {6AC63180-C327-4D94-8062-E6E6EBA333C0}
+		{1DB83FEF-A2BD-4FC6-B0AD-81AD9B20CCFE} = {D59DE8B1-5372-4BCA-8286-0CD557C61FE1}
 	EndGlobalSection
 EndGlobal
