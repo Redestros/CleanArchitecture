@@ -15,4 +15,15 @@ public class UseCasesTests : ArchUnitBaseTest
             .HaveNameEndingWith("Handler")
             .Check(Architecture);
     }
+    
+    [Fact]
+    public void HandlersShouldNotPublic()
+    {
+        ArchRuleDefinition
+            .Classes()
+            .That()
+            .ImplementInterface(typeof(IRequestHandler<,>))
+            .Should()
+            .NotBePublic();
+    }
 }
