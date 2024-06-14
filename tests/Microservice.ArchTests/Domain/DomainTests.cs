@@ -1,5 +1,3 @@
-using ArchUnitNET.Fluent;
-using ArchUnitNET.xUnit;
 using MediatR;
 
 namespace Microservice.ArchTests.Domain;
